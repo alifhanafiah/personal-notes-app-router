@@ -3,10 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "html-react-parser": "^3.0.4",
+    "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1"
-    
+    "react-icons": "^4.4.0",
+    "react-router-dom": "^6.4.2",
+    "react-scripts": "5.0.1",
+    "sweetalert2": "^11.4.38"
   },
   "scripts": {
     "start": "react-scripts start",
