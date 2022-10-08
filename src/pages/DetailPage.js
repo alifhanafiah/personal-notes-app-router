@@ -9,6 +9,7 @@ import {
   getNote,
   unarchiveNote,
 } from '../utils/local-data';
+import NotFoundPage from './NotFoundPage';
 
 function DetailPageWrapper() {
   const { id } = useParams();
@@ -49,16 +50,19 @@ class DetailPage extends Component {
   }
 
   render() {
-    const { id, title, createdAt, body, archived } = this.state.notes;
-    return (
+    return this.state.notes === undefined ? (
+      <NotFoundPage />
+    ) : (
       <section className="detail-page">
-        <h3 className="detail-page__title">{title}</h3>
-        <p className="detail-page__createdAt">{showFormattedDate(createdAt)}</p>
-        <div className="detail-page__body">{body}</div>
+        <h3 className="detail-page__title">{this.state.notes.title}</h3>
+        <p className="detail-page__createdAt">
+          {showFormattedDate(this.state.notes.createdAt)}
+        </p>
+        <div className="detail-page__body">{this.state.notes.body}</div>
         <DetailPageAction
-          id={id}
-          title={title}
-          archived={archived}
+          id={this.state.notes.id}
+          title={this.state.notes.title}
+          archived={this.state.notes.archived}
           archiveNote={this.props.onArchiveHandler}
           unArchiveNote={this.props.onUnarchiveHandler}
           deleteNote={this.props.onDeleteHandler}

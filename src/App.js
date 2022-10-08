@@ -8,6 +8,12 @@ import HomePage from './pages/HomePage';
 import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
+  const home = '/';
+  const archives = '/archives';
+  const add = '/notes/new';
+  const detail = '/notes/:id';
+  const notFound = '*';
+
   return (
     <div className="app-container">
       <header>
@@ -18,11 +24,11 @@ function App() {
       </header>
       <main>
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/archives" element={<ArchivePage />} />
-          <Route path="/notes/new" element={<AddNewPage />} />
-          <Route path="/notes/:id" element={<DetailPage />} />
-          <Route path="*" element={<NotFoundPage />} />
+          <Route path={home} element={<HomePage />} />
+          <Route path={archives} element={<ArchivePage />} />
+          <Route path={add} element={<AddNewPage />} />
+          <Route path={detail} element={<DetailPage />} />
+          <Route path={notFound} element={<NotFoundPage />} />
         </Routes>
       </main>
     </div>
